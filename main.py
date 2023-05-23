@@ -101,7 +101,7 @@ tk.Label(frame, text=LEXICON_RU['type'], justify=tk.LEFT).grid(row=0, column=1, 
 combo_type = ttk.Combobox(frame, values=guide['type'])
 
 combo_type.grid(row=0, column=2)
-combo_type.current(0)
+# combo_type.current(0)
 
 # ----------Создаём 2 блок----------
 tk.Label(frame, text=LEXICON_RU['issuing']).grid(row=1, column=1, sticky='w')
@@ -109,7 +109,7 @@ tk.Label(frame, text=LEXICON_RU['issuing']).grid(row=1, column=1, sticky='w')
 combo_issuing = ttk.Combobox(frame, values=sorted(guide['issuing']))
 
 combo_issuing.grid(row=1, column=2)
-combo_issuing.current(1)
+# combo_issuing.current(1)
 #
 # ----------Создаём 3 блок----------
 tk.Label(frame, text=LEXICON_RU['head_works']).grid(row=2, column=1, sticky='w')

@@ -58,7 +58,7 @@ def create_calendar(name_date, cord_row, cord_col):
     combo_hour = ttk.Combobox(root, values=[i for i in range(1, 25)])
     combo_hour.grid(row=1, column=1, sticky='w')
     combo_minutes = ttk.Combobox(root, values=[i for i in range(0, 70, 10)])
-    combo_hour.current(0)
+    # combo_hour.current(0)
     combo_minutes.current(0)
     combo_minutes.grid(row=1, column=1, sticky='e')
     button_time = tk.Button(root,text="Выбрать дату и время", command=grad_date)
