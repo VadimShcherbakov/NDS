@@ -52,10 +52,11 @@ class Naryad:
     def paste_blank_name_brigade_members(self, coordinates,value):
         worker = ", ".join(value)
         Naryad.doc.tables[coordinates[0][0]].cell(coordinates[0][1], coordinates[0][2]).text = worker
-        worker = ", ".join([w.split(',')[0]for w in value])
+        # worker = ", ".join([w.split(',')[0]for w in value])
         coordinates = coordinates[1:]
-        for coordinate in coordinates:
-            Naryad.doc.tables[coordinate[0]].cell(coordinate[1], coordinate[2]).text = worker
+        for c, w in enumerate(value):
+            for coordinate in coordinates:
+                Naryad.doc.tables[coordinate[0]].cell(coordinate[1]+c, coordinate[2]).text = w.split(',')[0]
 
     def record_word(self):
         Naryad.paste_blank_name(self, Naryad.coordinates_paste_tables["issuing"], self.issuing)

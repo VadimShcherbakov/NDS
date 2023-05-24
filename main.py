@@ -22,11 +22,15 @@ def append_brigade_members() -> list:
     try:
         check_input('manufacturer_works', combo_manufacturer_works.get())
         if combo_brigade_members.get():
-            if combo_head_works.get() != combo_brigade_members.get() != combo_manufacturer_works.get():
-                set_brigade_members.add(combo_brigade_members.get())
-                tk.Label(frame, text=", ".join([w.split(',')[0] for w in list(set_brigade_members)])).grid(row=6, column=1, columnspan=2, sticky='e')
+            if len(set_brigade_members) >= 4:
+                raise InputDataError(LEXICON_RU['error_full_brigade_members'])
             else:
-                raise InputDataError(LEXICON_RU['error_coincidence_brigade_members'])
+                if combo_head_works.get() != combo_brigade_members.get() != combo_manufacturer_works.get():
+                    set_brigade_members.add(combo_brigade_members.get())
+                    tk.Label(frame, text=", ".join([w.split(',')[0] for w in list(set_brigade_members)]))\
+                        .grid(row=6, column=1, columnspan=2, sticky='e')
+                else:
+                    raise InputDataError(LEXICON_RU['error_coincidence_brigade_members'])
         else:
             raise InputDataError(LEXICON_RU['error_empty_brigade_members'])
     except InputDataError as er:
@@ -40,9 +44,9 @@ def delete_brigade_members() -> list:
 
 
 def check_date():
-    if date_dict['date_start'] > date_dict['date_end']:
+    if date_dict['date_start'] >= date_dict['date_end']:
         raise InputDataError(LEXICON_RU["error_date_start"])
-    elif date_dict['date_issued'] > date_dict['date_start']:
+    elif date_dict['date_issued'] >= date_dict['date_start']:
         raise InputDataError(LEXICON_RU["error_date_issued"])
 
 
