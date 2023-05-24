@@ -162,8 +162,6 @@ cal_btn = tk.Button(frame, text=LEXICON_RU['cal_btn'], command=user_input)
 cal_btn.grid(row=10, column=2)
 
 
-
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     frame.mainloop()
