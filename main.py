@@ -7,7 +7,7 @@ from services.word import Naryad
 from services.calendar import create_calendar, DATE_DICT, InputDataError
 
 SET_BRIDGE_MEMBERS = set()
-guide = read_json("data/guide.json")
+guide = read_json("data/.guide.json")
 
 
 def check_input(key_value: str, check_value: str) -> str:
